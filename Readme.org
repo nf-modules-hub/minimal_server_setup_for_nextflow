@@ -1,0 +1,78 @@
+#+TITLE: Server Setup
+
+* For Ubuntu-18.04 server
+
+* GENERAL
+
+#+BEGIN_SRC
+
+apt update
+apt install sudo vim -y
+
+
+#+END_SRC
+
+
+
+
+
+* RCLONE
+#+BEGIN_SRC
+curl https://rclone.org/install.sh | sudo bash
+#+END_SRC
+
+
+
+
+
+* CONDA
+
+#+BEGIN_SRC
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash ./Miniconda3-latest-Linux-x86_64.sh
+exec $SHELL
+
+rm ./Miniconda3-latest-Linux-x86_64.sh
+
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+
+#+END_SRC
+
+
+
+#+BEGIN_SRC
+conda create --name py37 python=3.7 -y
+conda create --name py27 python=2.7 -y
+
+#+END_SRC
+
+* JAVA
+** Optionally install openjdk using conda
+
+#+BEGIN_SRC
+# installs java-11 by default
+conda install openjdk -y
+
+#+END_SRC
+
+* NEXTFLOW
+#+BEGIN_SRC
+
+curl -s https://get.nextflow.io | bash
+sudo mv nextflow /usr/local/bin/
+
+#+END_SRC
+
+* DOCKER
+
+#+BEGIN_SRC
+sudo apt-get remove docker docker-engine docker.io
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+#+END_SRC
