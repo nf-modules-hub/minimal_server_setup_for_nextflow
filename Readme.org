@@ -22,6 +22,15 @@ curl https://rclone.org/install.sh | sudo bash
 #+END_SRC
 
 
+* DOCKER
+
+#+BEGIN_SRC
+sudo apt-get remove docker docker-engine docker.io
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+
+#+END_SRC
 
 
 
@@ -67,12 +76,3 @@ sudo mv nextflow /usr/local/bin/
 
 #+END_SRC
 
-* DOCKER
-
-#+BEGIN_SRC
-sudo apt-get remove docker docker-engine docker.io
-sudo apt install docker.io -y
-sudo systemctl start docker
-sudo systemctl enable docker
-
-#+END_SRC
