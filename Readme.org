@@ -7,7 +7,7 @@
 #+BEGIN_SRC
 
 apt update
-apt install sudo vim -y
+apt install sudo vim tmux -y
 
 
 #+END_SRC
@@ -44,11 +44,12 @@ su - ${USER}
 
 #+BEGIN_SRC
 
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash ./Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh
+
+bash ./Miniconda3-py37_4.8.3-Linux-x86_64.sh
 exec $SHELL
 
-rm ./Miniconda3-latest-Linux-x86_64.sh
+rm ./Miniconda3-py37_4.8.3-Linux-x86_64.sh
 
 conda config --add channels defaults
 conda config --add channels bioconda
@@ -65,20 +66,11 @@ conda create --name py27 python=2.7 -y
 
 #+END_SRC
 
-* JAVA
-** Optionally install openjdk using conda
+* NEXTFLOW
 
 #+BEGIN_SRC
 # installs java-11 by default
-conda install openjdk=11.0.1 -y
-
-#+END_SRC
-
-* NEXTFLOW
-#+BEGIN_SRC
-
-curl -s https://get.nextflow.io | bash
-sudo mv nextflow /usr/local/bin/
+conda install nextflow openjdk=11.0.1 -y
 
 #+END_SRC
 
